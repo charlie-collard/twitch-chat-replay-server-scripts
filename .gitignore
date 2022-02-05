@@ -1,0 +1,6 @@
+content/
+downtime/
+logs/
+credentials.sh
+
+*.swp
