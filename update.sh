@@ -10,7 +10,7 @@ cleanup() {
 tempdir=$(mktemp -d)
 comments_dir="/home/charlie/workspace/twitch-chat-replay/content/videos"
 funny_moments_dir="/home/charlie/workspace/twitch-chat-replay/content/funny-moments"
-source credentials.sh
+source "/home/charlie/workspace/twitch-chat-replay/credentials.sh"
 access_token=$(curl -sS -X POST "https://id.twitch.tv/oauth2/token?client_id=$client_id&client_secret=$client_secret&grant_type=client_credentials&scope=user:read:email" | jq -r .access_token)
 downloaded=$(ls "$comments_dir" | sort | sed 's/.json.gz//g')
 recent=$(curl -sS -X GET 'https://api.twitch.tv/helix/videos?user_id=14371185&first=100' \
