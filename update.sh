@@ -19,4 +19,4 @@ recent=$(curl -sS -X GET 'https://api.twitch.tv/helix/videos?user_id=14371185&fi
 
 
 echo "Downloading $(comm -13 <(echo "$downloaded") <(echo "$recent") | wc -l) files"
-comm -13 <(echo "$downloaded") <(echo "$recent") | xargs -I {} sh -c "echo {}; tcd --output $tempdir --format json --video {} && gzip $tempdir/{}.json && mv $tempdir/{}.json.gz $comments_dir; python3 /home/charlie/workspace/twitch-chat-replay/find-funny-moments.py $comments_dir/{}.json.gz | gzip - > $funny_moments_dir/{}.json.gz"
+comm -13 <(echo "$downloaded") <(echo "$recent") | xargs -I {} sh -c "echo {}; tcd --settings-file /home/charlie/.config/tcd/settings.json --output $tempdir --format json --video {} && gzip $tempdir/{}.json && mv $tempdir/{}.json.gz $comments_dir; python3 /home/charlie/workspace/twitch-chat-replay/find-funny-moments.py $comments_dir/{}.json.gz | gzip - > $funny_moments_dir/{}.json.gz"
