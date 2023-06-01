@@ -13,8 +13,8 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "bspammer";
     repo = "Twitch-Chat-Downloader";
-    rev = "b32c60a6f094b3bd2c8128a1d409e85ece6df821";
-    sha256 = "sha256-C9BT4HZWC14E3kSKw74w4vOEq3ZRJ1J/cEpgwDerJb8=";
+    rev = "3bfc3ca7ea905e0f66f00914a6f938acbe1f6158";
+    sha256 = "sha256-HFRR0AdoTwpU+IajxUDhowVZ4AOFR5IRftWY0xidu1c=";
   };
 
   doCheck = false;
